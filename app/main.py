@@ -9,14 +9,14 @@ models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Chat-With-Website Engine", version="1.0.0")
 
-origins = [
-    "https://olum.ai",
-    "https://www.olum.ai",
-]
+# origins = [
+#     "https://olum.ai",
+#     "https://www.olum.ai",
+# ]
 # Set up CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
