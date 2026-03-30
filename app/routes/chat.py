@@ -17,7 +17,8 @@ def chat_endpoint(request: ChatRequest, background_tasks: BackgroundTasks, db: S
         raise HTTPException(status_code=404, detail="Company bot not found.")
 
     # 2. The Paywall Logic
-    if tenant.tier == "demo" and tenant.message_count >= 5:
+    # if tenant.tier == "demo" and tenant.message_count >= 5:
+    if tenant.tier == "demo" and tenant.message_count >= 10:
         paywall_msg = "LIMIT_REACHED: Your bot is performing beautifully! 🚀 To unlock unlimited chats, deep-site crawling, and to embed this bot on your own website, please upgrade to a Pro plan."
         return ChatResponse(answer=paywall_msg)
 
